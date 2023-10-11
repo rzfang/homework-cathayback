@@ -91,7 +91,7 @@ function DatePicker ({ date = new Date(), onDaysPicked }: I_props) {
   const prevMonth = (): void => {
     const lastMonthSomeday = new Date(targetDate);
 
-    lastMonthSomeday.setMonth(date.getMonth() - 1, 15); // give date 15 to avoid the case 3/31 > 2/31 > 3/3.
+    lastMonthSomeday.setMonth(lastMonthSomeday.getMonth() - 1, 15); // give date 15 to avoid the case 3/31 > 2/31 > 3/3.
 
     setTargetDate(lastMonthSomeday);
   };
@@ -99,7 +99,7 @@ function DatePicker ({ date = new Date(), onDaysPicked }: I_props) {
   const nextMonth = (): void => {
     const nextMonthSomeday = new Date(targetDate);
 
-    nextMonthSomeday.setMonth(date.getMonth() + 1, 15); // give date 15 to avoid the case 1/31 > 2/31 > 3/3.
+    nextMonthSomeday.setMonth(nextMonthSomeday.getMonth() + 1, 15); // give date 15 to avoid the case 1/31 > 2/31 > 3/3.
 
     setTargetDate(nextMonthSomeday);
   };
